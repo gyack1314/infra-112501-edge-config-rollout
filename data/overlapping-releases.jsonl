@@ -1,0 +1,10 @@
+{"timestamp": 0, "type": "base", "data": {"id": "b1", "values": {"labels": "classic", "telemetry": true}}}
+{"timestamp": 1, "type": "override", "data": {"id": "west-1", "site": "west", "set": {}, "inherit": ["telemetry"], "clear": []}}
+{"timestamp": 2, "type": "agent", "data": {"site": "west", "agent": "relay", "kind": "relay", "formats": ["q1"], "installed": "r1", "min_online": 1}}
+{"timestamp": 3, "type": "agent", "data": {"site": "west", "agent": "x", "kind": "collector", "formats": ["q1", "q2"], "installed": "c1", "queue": "q1", "min_online": 1, "relay_versions": ["r1", "r2"]}}
+{"timestamp": 4, "type": "agent", "data": {"site": "west", "agent": "y", "kind": "collector", "formats": ["q1"], "installed": "c1", "queue": "q1", "min_online": 1, "relay_versions": ["r1", "r2"]}}
+{"timestamp": 5, "type": "release", "data": {"release": "r-new", "base": "b1", "target": "r2", "sites": {"west": {"override": "west-1", "waves": [["relay"]]}}, "target_format": "q1", "relay_compatible": ["r1", "r2"]}}
+{"timestamp": 6, "type": "release", "data": {"release": "c-new", "base": "b1", "target": "c2", "sites": {"west": {"override": "west-1", "waves": [["x"]]}}, "target_format": "q2", "relay_compatible": ["r2"]}}
+{"timestamp": 7, "type": "claim", "data": {"release": "c-new", "site": "west", "agent": "x", "request": "cannot-yet"}}
+{"timestamp": 7, "type": "claim", "data": {"release": "r-new", "site": "west", "agent": "relay", "request": "relay-up"}}
+{"timestamp": 8, "type": "inspect", "data": {"site": "west"}}

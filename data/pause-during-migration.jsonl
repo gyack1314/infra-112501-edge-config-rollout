@@ -1,0 +1,15 @@
+{"timestamp": 0, "type": "base", "data": {"id": "b1", "values": {"labels": "classic", "telemetry": true}}}
+{"timestamp": 1, "type": "override", "data": {"id": "a1", "site": "east", "set": {"labels": "extended"}, "inherit": [], "clear": ["telemetry"]}}
+{"timestamp": 2, "type": "agent", "data": {"site": "east", "agent": "relay", "kind": "relay", "formats": ["q1", "q2"], "installed": "r1", "min_online": 1}}
+{"timestamp": 3, "type": "agent", "data": {"site": "east", "agent": "cam-a", "kind": "collector", "formats": ["q1", "q2"], "installed": "c1", "queue": "q1", "min_online": 1, "relay_versions": ["r1", "r2"]}}
+{"timestamp": 4, "type": "agent", "data": {"site": "east", "agent": "cam-b", "kind": "collector", "formats": ["q1", "q2"], "installed": "c1", "queue": "q1", "min_online": 1, "relay_versions": ["r1", "r2"]}}
+{"timestamp": 5, "type": "release", "data": {"release": "feb", "base": "b1", "target": "c2", "sites": {"east": {"override": "a1", "waves": [["cam-a"], ["cam-b"]]}}, "target_format": "q2", "relay_compatible": ["r1", "r2"]}}
+{"timestamp": 6, "type": "claim", "data": {"release": "feb", "site": "east", "agent": "cam-a", "request": "w1"}}
+{"timestamp": 7, "type": "base", "data": {"id": "b2", "values": {"labels": "next-shift", "telemetry": true}}}
+{"timestamp": 8, "type": "pause", "data": {"release": "feb"}}
+{"timestamp": 9, "type": "ack", "data": {"release": "feb", "site": "east", "agent": "cam-a", "request": "w1", "outcome": "applied", "installed": "c2", "queue": "q2"}}
+{"timestamp": 10, "type": "claim", "data": {"release": "feb", "site": "east", "agent": "cam-b", "request": "w2"}}
+{"timestamp": 11, "type": "recover", "data": {"release": "feb", "site": "east", "mode": "revert", "target": "c1"}}
+{"timestamp": 12, "type": "inspect", "data": {"site": "east", "release": "feb"}}
+{"timestamp": 13, "type": "release", "data": {"release": "fix", "base": "b2", "target": "c3", "sites": {"east": {"override": "a1", "waves": [["cam-a"]]}}, "target_format": "q2", "relay_compatible": ["r1"]}}
+{"timestamp": 14, "type": "recover", "data": {"release": "feb", "site": "east", "mode": "forward", "target": "c3"}}
